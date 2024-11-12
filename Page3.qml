@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
-import Origin
-import Origin.Extra
+
+import Origin.Controls
 
 Page {
   title: qsTr("Page 3")
@@ -9,18 +9,18 @@ Page {
   RowLayout {
     // anchors.fill: parent
 
-          Repeater {
-            model: [
-              qsTr("Name"),
-              qsTr("Date Time"),
-        qsTr("Counter Number ####"),
-        qsTr("Custom Template")
-            ]
-            delegate: Tag {
-              required property string modelData
-              text: modelData
-            }
-          }
+        //   Repeater {
+        //     model: [
+        //       qsTr("Name"),
+        //       qsTr("Date Time"),
+        // qsTr("Counter Number ####"),
+        // qsTr("Custom Template")
+        //     ]
+        //     delegate: Tag {
+        //       required property string modelData
+        //       text: modelData
+        //     }
+        //   }
 
       }
 

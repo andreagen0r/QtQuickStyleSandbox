@@ -4,7 +4,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Dialogs
 
-import Origin
+import Origin.Controls
 
 ApplicationWindow {
   id: root
@@ -14,11 +14,14 @@ ApplicationWindow {
   title: qsTr("Sandbox")
 
   font.pointSize: 10
+
   palette: theme.dark
 
   Themes {
     id: theme
   }
+
+  // Origin.theme: themeSwitch.checked ? Origin.Light : Origin.Dark
 
   header: ToolBar {
     implicitHeight: 32
@@ -72,12 +75,24 @@ ApplicationWindow {
   footer: Item {
     implicitHeight: 32
 
-    PageIndicator {
-      id: indicator
-      anchors.centerIn: parent
+    RowLayout {
+      anchors.fill: parent
 
-      count: view.count
-      currentIndex: view.currentIndex
+      Item { Layout.fillWidth: true }
+
+      PageIndicator {
+        id: indicator
+        count: view.count
+        currentIndex: view.currentIndex
+      }
+
+      Item { Layout.fillWidth: true }
+    }
+
+    Switch {
+      id: themeSwitch
+      anchors.bottom: parent.bottom
+      text: checked ? qsTr("Light") : qsTr("Dark")
     }
   } // footer
 
@@ -112,9 +127,6 @@ ApplicationWindow {
       Action { text: qsTr("&About") }
     }
   } // menuBar
-
-
-
 
 
   SwipeView {
@@ -156,7 +168,7 @@ ApplicationWindow {
     title: "Dialog"
     standardButtons: Dialog.Ok | Dialog.Cancel
 
-    icon.source: "qrc:/qt/qml/Sandbox/assets/atom-solid.svg"
+    // icon.source: "qrc:/qt/qml/Sandbox/assets/atom-solid.svg"
 
     GridLayout {
       anchors.fill: parent

@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 
-import Origin
+import Origin.Controls
 
 Frame {
   clip: true
